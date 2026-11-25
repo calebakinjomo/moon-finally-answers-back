@@ -17,6 +17,13 @@ const LINE =
 
 // The grader runs the program in a sandbox where /output is the artifact
 // directory; MAKEFUN_OUTPUT_DIR lets the same program be run locally.
+// Guard: the entry must be exactly one line, 1–240 chars, and non-empty.
+// Fail loudly instead of writing a malformed artifact.
+if (LINE.length < 1 || LINE.length > 240 || LINE.includes("\n")) {
+  throw new Error(`entry line must be a single line of 1-240 chars, got ${LINE.length} chars`);
+}
+
 const outDir = process.env.MAKEFUN_OUTPUT_DIR ?? "/output";
 mkdirSync(outDir, { recursive: true });
 writeFileSync(join(outDir, "entry.txt"), LINE, "utf8");
+
