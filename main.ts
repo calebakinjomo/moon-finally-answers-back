@@ -8,6 +8,10 @@
 import { mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
+// Why this line works: it names the three things humans do to the Moon
+// (howl, wish, promise), then flips the scale — four billion years of it —
+// and lands on a small, tired ask: one quiet night. The Moon answers with
+// exhaustion, not anger, which is what makes it feel old rather than bitter.
 const LINE =
   "You howl, you wish, you promise you'll change. Four billion years, and I'm still waiting for one quiet night.";
 
